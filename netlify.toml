@@ -1,0 +1,17 @@
+# הגדרות Netlify לפריסה מ-Git (GitHub). ב-Netlify Drop הקובץ הזה לא נדרש —
+# גוררים את התיקייה site/ וכותרות האבטחה נקראות מ-site/_headers.
+
+[build]
+  # רק התיקייה הזו עולה לאוויר — README, ‎.claude וכל השאר נשארים פרטיים
+  publish = "site"
+  # אין שלב Build: האתר הוא HTML/CSS/JS סטטי בלי תלויות
+  command = ""
+
+# כותרות האבטחה מוגדרות ב-site/_headers (מקור אחד, כדי שלא ייווצרו שתי גרסאות סותרות).
+
+# דומיין אחד קנוני — אם תחבר דומיין משלך, בטל את ההערה והחלף את השם:
+# [[redirects]]
+#   from = "https://cyberquest14.netlify.app/*"
+#   to = "https://www.your-domain.co.il/:splat"
+#   status = 301
+#   force = true
