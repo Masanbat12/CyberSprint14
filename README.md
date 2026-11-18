@@ -28,7 +28,7 @@
 כדי לבדוק את האתר עם אותן כותרות אבטחה שהוא מקבל ב-Netlify, יש שרת קטן שקורא את `site/_headers`:
 
 ```
-python .claude/serve_with_headers.py 8715
+python serve_with_headers.py 8715
 ```
 
 ואז פותחים את http://localhost:8715
@@ -100,7 +100,6 @@ learning web/
 │   ├── _redirects        # /.well-known/security.txt אל /security.txt
 │   └── security.txt      # פרטי קשר לדיווח על חולשות (RFC 9116)
 ├── netlify.toml          # פריסה מ-GitHub: publish = "site"
-├── .claude/              # שרת תצוגה מקומי שמחיל את _headers
 ├── index.single-file.backup.html  # הגרסה הישנה בקובץ אחד
 └── README.md
 ```
