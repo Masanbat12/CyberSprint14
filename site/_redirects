@@ -1,0 +1,2 @@
+# קובץ הדיווח על חולשות (RFC 9116). הקובץ נמצא ב-/security.txt כי Netlify Drop מדלג על תיקיות שמתחילות בנקודה.
+/.well-known/security.txt  /security.txt  200

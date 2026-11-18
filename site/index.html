@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- מדיניות אבטחת תוכן (גיבוי לכותרת ב-_headers, שהיא המדיניות המחייבת ב-Netlify).
+     אין 'unsafe-inline' ואין eval: כל הקוד ב-app.js וכל העיצוב ב-styles.css.
+     frame-ancestors לא נתמך בתגית meta — לכן הוא מוגדר רק בכותרת. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; manifest-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Masanbat Mulu (מסנבט מולו)">
+<meta name="theme-color" content="#0F172A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CyberQuest">
+<meta name="description" content="CyberQuest 14 – לומדים סייבר ואבטחת מידע בשבועיים: שיעורים קצרים ומעבדות תקיפה והגנה.">
+<title>CyberQuest 14 – לומדים סייבר בשבועיים</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#view">דלג לתוכן</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#home" aria-label="CyberQuest 14 – דף הבית">🛡️ CyberQuest<span class="n">14</span></a>
+    <span class="chip" id="hdr-rank" title="הדרגה שלך"></span>
+    <span class="chip" id="hdr-xp" title="נקודות ניסיון (XP)"></span>
+    <span class="chip" id="hdr-streak" title="רצף ימי למידה"></span>
+  </div>
+</header>
+
+<main id="view" tabindex="-1"></main>
+
+<nav class="bottom" aria-label="ניווט ראשי">
+  <div class="in">
+    <a href="#home" data-nav="home"><span class="i">🏠</span>בית</a>
+    <a href="#day-1" id="nav-next" data-nav="day"><span class="i">📅</span>השיעור הבא</a>
+    <a href="#tools" data-nav="tools"><span class="i">🧰</span>ארגז כלים</a>
+    <a href="#prefs" data-nav="settings"><span class="i">⚙️</span>הגדרות</a>
+  </div>
+</nav>
+
+<!-- הדמות המלווה: "ביט" -->
+<div id="mascot">
+  <div id="bubble" role="status" aria-live="polite" hidden>
+    <button class="x" id="bubble-x" type="button" aria-label="סגור הודעה">×</button>
+    <div id="bubble-text"></div>
+  </div>
+  <button id="bot" type="button" aria-label="ביט, הרובוט המלווה – לחץ לקבלת טיפ">
+    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <line x1="50" y1="9" x2="50" y2="21" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+      <circle id="m-light" cx="50" cy="8" r="5" fill="#38BDF8"/>
+      <rect x="34" y="76" width="32" height="20" rx="7" fill="#1E293B" stroke="#38BDF8" stroke-width="2.5"/>
+      <path d="M50 79 l8 3 v4.5 c0 4.5 -4 6.5 -8 8 c-4 -1.5 -8 -3.5 -8 -8 v-4.5z" fill="#10B981"/>
+      <path d="M46.5 86.5 l2.5 2.5 l5 -5" fill="none" stroke="#022a1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="11" y="40" width="9" height="18" rx="4" fill="#334155"/>
+      <rect x="80" y="40" width="9" height="18" rx="4" fill="#334155"/>
+      <rect x="18" y="20" width="64" height="58" rx="18" fill="#1E293B" stroke="#38BDF8" stroke-width="3"/>
+      <rect x="26" y="31" width="48" height="40" rx="12" fill="#0B1222"/>
+      <path id="m-eyeL" d="M33 47 a5 6 0 1 0 10 0 a5 6 0 1 0 -10 0" fill="#38BDF8" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <path id="m-eyeR" d="M57 47 a5 6 0 1 0 10 0 a5 6 0 1 0 -10 0" fill="#38BDF8" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <path id="m-mouth" d="M41 62 Q50 68 59 62" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="31" cy="60" r="3" fill="#F43F5E" opacity=".35"/>
+      <circle cx="69" cy="60" r="3" fill="#F43F5E" opacity=".35"/>
+    </svg>
+  </button>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

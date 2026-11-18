@@ -1,0 +1,36 @@
+# =====================================================================
+#  CyberQuest 14 — כותרות אבטחה ל-Netlify
+#  הקובץ חייב להיות בתיקייה שמעלים (site/). עובד גם ב-Netlify Drop וגם ב-Git.
+#  בדיקה אחרי פרסום:  https://securityheaders.com  ·  https://observatory.mozilla.org
+# =====================================================================
+
+/*
+  # --- CSP: רק קבצים מהדומיין שלנו. בלי unsafe-inline, בלי eval, בלי iframes.
+  # הוספת משאב חיצוני? ראה את ההסבר ב-README (סעיף "התאמת CSP").
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; manifest-src 'self' blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types 'none'
+
+  # --- HTTPS בלבד לשנתיים, כולל תתי-דומיינים
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # --- נגד Clickjacking (לדפדפנים ישנים; בחדשים frame-ancestors עושה את העבודה)
+  X-Frame-Options: DENY
+
+  # --- הדפדפן לא "מנחש" סוג קובץ (MIME sniffing)
+  X-Content-Type-Options: nosniff
+
+  # --- לא שולחים לאתרים אחרים מאיפה הגיעו
+  Referrer-Policy: no-referrer
+
+  # --- כיבוי כל יכולות החומרה והפרטיות שהאתר לא צריך
+  Permissions-Policy: accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), usb=(), xr-spatial-tracking=()
+
+  # --- בידוד מחלונות ומאתרים אחרים (Spectre ודומיו)
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+
+  # --- המלצת OWASP: לכבות את מסנן ה-XSS הישן של הדפדפנים (הוא עצמו יצר חולשות)
+  X-XSS-Protection: 0
+
+  # --- לא לחשוף בכלי פיתוח שמשהו "מיוחד" רץ כאן
+  X-Permitted-Cross-Domain-Policies: none
